@@ -1,0 +1,133 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.8">
+  <diagram name="ERD" id="0">
+    <mxGraphModel dx="1426" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Platform" value="Platform" style="shape=table;startSize=30;childLayout=tableLayout;rowLines=0;fontStyle=1;align=center;rounded=0;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="70" y="115" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-1" value="PK platform_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Platform" vertex="1">
+          <mxGeometry y="30" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-2" value="platform_name : varchar" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Platform" vertex="1">
+          <mxGeometry y="65" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="AgileReleaseTrain" value="AgileReleaseTrain" style="shape=table;startSize=30;childLayout=tableLayout;rowLines=0;fontStyle=1;align=center;rounded=0;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="350" y="100" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-3" value="PK art_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="AgileReleaseTrain" vertex="1">
+          <mxGeometry y="30" width="200" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-4" value="art_name : varchar" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="AgileReleaseTrain" vertex="1">
+          <mxGeometry y="63" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-5" value="FK platform_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="AgileReleaseTrain" vertex="1">
+          <mxGeometry y="97" width="200" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="Project" value="Project" style="shape=table;startSize=30;childLayout=tableLayout;rowLines=0;fontStyle=1;align=center;rounded=0;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="620" y="100" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-6" value="PK project_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Project" vertex="1">
+          <mxGeometry y="30" width="200" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-7" value="project_name : varchar" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Project" vertex="1">
+          <mxGeometry y="63" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-8" value="FK art_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Project" vertex="1">
+          <mxGeometry y="97" width="200" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="Release" value="Release" style="shape=table;startSize=30;childLayout=tableLayout;rowLines=0;fontStyle=1;align=center;rounded=0;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="880" y="100" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-9" value="PK release_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Release" vertex="1">
+          <mxGeometry y="30" width="200" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-10" value="release_name : varchar" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Release" vertex="1">
+          <mxGeometry y="63" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-11" value="FK project_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Release" vertex="1">
+          <mxGeometry y="97" width="200" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="System" value="System" style="shape=table;startSize=30;childLayout=tableLayout;rowLines=0;fontStyle=1;align=center;rounded=0;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="1220" y="285" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-12" value="PK system_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="System" vertex="1">
+          <mxGeometry y="30" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-13" value="system_name : varchar" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="System" vertex="1">
+          <mxGeometry y="65" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Release_System_Map" value="Release_System_Map" style="shape=table;startSize=30;childLayout=tableLayout;rowLines=0;fontStyle=1;align=center;rounded=0;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="890" y="270" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-14" value="FK release_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Release_System_Map" vertex="1">
+          <mxGeometry y="30" width="220" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-15" value="FK system_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Release_System_Map" vertex="1">
+          <mxGeometry y="63" width="220" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-16" value="system_role : varchar" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Release_System_Map" vertex="1">
+          <mxGeometry y="97" width="220" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="TestCycle" value="TestCycle" style="shape=table;startSize=30;childLayout=tableLayout;rowLines=0;fontStyle=1;align=center;rounded=0;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="620" y="270" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-17" value="PK cycle_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="TestCycle" vertex="1">
+          <mxGeometry y="30" width="200" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-18" value="cycle_name : varchar" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="TestCycle" vertex="1">
+          <mxGeometry y="63" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-19" value="FK release_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="TestCycle" vertex="1">
+          <mxGeometry y="97" width="200" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="TestRun" value="TestRun" style="shape=table;startSize=30;childLayout=tableLayout;rowLines=0;fontStyle=1;align=center;rounded=0;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="620" y="440" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-20" value="PK test_run_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="TestRun" vertex="1">
+          <mxGeometry y="30" width="200" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-21" value="test_run_name : varchar" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="TestRun" vertex="1">
+          <mxGeometry y="63" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-22" value="FK cycle_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="TestRun" vertex="1">
+          <mxGeometry y="97" width="200" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="Test" value="Test" style="shape=table;startSize=30;childLayout=tableLayout;rowLines=0;fontStyle=1;align=center;rounded=0;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="620" y="600" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-23" value="PK test_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Test" vertex="1">
+          <mxGeometry y="30" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-24" value="FK test_run_id : int" style="shape=partialRectangle;fillColor=none;align=left;spacingLeft=6;rounded=0;labelBackgroundColor=none;" parent="Test" vertex="1">
+          <mxGeometry y="65" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-25" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERzeroToMany;startArrow=ERone;labelBackgroundColor=none;fontColor=default;rounded=0;" parent="1" source="Platform" target="AgileReleaseTrain" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-26" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERzeroToMany;startArrow=ERone;labelBackgroundColor=none;fontColor=default;rounded=0;" parent="1" source="AgileReleaseTrain" target="Project" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-27" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERzeroToMany;startArrow=ERone;labelBackgroundColor=none;fontColor=default;rounded=0;" parent="1" source="Project" target="Release" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-28" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERzeroToMany;startArrow=ERone;labelBackgroundColor=none;fontColor=default;rounded=0;" parent="1" source="Release" target="TestCycle" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-29" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERzeroToMany;startArrow=ERone;labelBackgroundColor=none;fontColor=default;rounded=0;" parent="1" source="TestCycle" target="TestRun" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-30" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERzeroToMany;startArrow=ERone;labelBackgroundColor=none;fontColor=default;rounded=0;" parent="1" source="TestRun" target="Test" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-31" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERzeroToMany;startArrow=ERone;labelBackgroundColor=none;fontColor=default;rounded=0;" parent="1" source="Release" target="Release_System_Map" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_486kBMGEAMqEpYw8NbH-32" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERzeroToMany;startArrow=ERone;labelBackgroundColor=none;fontColor=default;rounded=0;" parent="1" source="System" target="Release_System_Map" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
