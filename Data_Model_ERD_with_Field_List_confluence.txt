@@ -1,0 +1,77 @@
+h1. Data Model – Test Data Integration ERD
+This document describes the proposed normalized data model for unified test data ingestion and reporting across Jira, GitLab, and JMeter.
+
+h2. 1. Overview
+The following logical data model supports integration between delivery and testing systems. It ensures referential integrity, normalized structure, and clear traceability between configuration and execution layers.
+
+h2. 2. Proposed Entities and Relationships
+|| Entity || Key Fields || Relationships || Source System ||
+| *Platform* | platform_id, platform_name | 1:N → AgileReleaseTrain | JMeter |
+| *AgileReleaseTrain* | art_id, art_name, platform_id | 1:N → Project | JMeter |
+| *Project* | project_id, project_name, art_id | 1:N → Release | JMeter |
+| *Release* | release_id, release_name, project_id | 1:N → TestCycle; N:M → System | Jira |
+| *System* | system_id, system_name | M:N → Release | JMeter |
+| *Release_System_Map* | release_id, system_id, system_role | Join table for Source/Target mapping | Derived |
+| *TestCycle* | cycle_id, cycle_name, release_id | 1:N → TestRun | Jira |
+| *TestRun* | test_run_id, test_run_name, cycle_id | 1:N → Test | GitLab |
+| *Test* | test_id, test_run_id | Leaf entity | Jira / GitLab |
+
+h2. 3. Detailed Field Definitions
+|| Entity || Field || Type || Key || Description ||
+| *Platform* | platform_id | int | PK | Unique platform identifier |
+| *Platform* | platform_name | varchar(100) |  | Name of the platform |
+| *AgileReleaseTrain* | art_id | int | PK | Unique ART identifier |
+| *AgileReleaseTrain* | art_name | varchar(100) |  | Agile Release Train name |
+| *AgileReleaseTrain* | platform_id | int | FK → Platform.platform_id | Parent platform |
+| *Project* | project_id | int | PK | Unique project identifier |
+| *Project* | project_name | varchar(100) |  | Project name |
+| *Project* | art_id | int | FK → AgileReleaseTrain.art_id | Owning Agile Release Train |
+| *Release* | release_id | int | PK | Unique release identifier |
+| *Release* | release_name | varchar(100) |  | Release name or version label |
+| *Release* | project_id | int | FK → Project.project_id | Owning project |
+| *System* | system_id | int | PK | Unique system identifier |
+| *System* | system_name | varchar(100) |  | Application or system name |
+| *Release_System_Map* | release_id | int | FK → Release.release_id | Associated release |
+| *Release_System_Map* | system_id | int | FK → System.system_id | Associated system |
+| *Release_System_Map* | system_role | varchar(50) |  | Role of system in flow (e.g., source/target) |
+| *TestCycle* | cycle_id | int | PK | Unique test cycle identifier |
+| *TestCycle* | cycle_name | varchar(100) |  | Named cycle or suite |
+| *TestCycle* | release_id | int | FK → Release.release_id | Associated release |
+| *TestRun* | test_run_id | int | PK | Unique test run identifier |
+| *TestRun* | test_run_name | varchar(100) |  | Test run label |
+| *TestRun* | cycle_id | int | FK → TestCycle.cycle_id | Owning test cycle |
+| *Test* | test_id | int | PK | Unique test identifier |
+| *Test* | test_run_id | int | FK → TestRun.test_run_id | Owning test run |
+
+{expand:title=4. Normalization and Design Notes}
+* Each entity includes a unique primary key (_id) field.
+* Relationships are defined explicitly using foreign keys.
+* Release_System_Map normalizes the many-to-many mapping between Releases and Systems and supports system_role to distinguish Source/Target.
+* Naming conventions follow lowercase snake_case aligned with PostgreSQL standards.
+* Data types:
+** int for identifiers
+** varchar for descriptive attributes (lengths may vary by field)
+* The model is designed for future enrichment (e.g., test result metrics).
+{expand}
+
+{expand:title=5. Clarification Questions}
+# Is the hierarchy Platform → AgileReleaseTrain → Project → Release always consistent, or can projects span multiple ARTs?
+# Should source and target systems be represented within a single mapping table (Release_System_Map) or separate entities?
+# Can a single release have multiple source and multiple target systems concurrently?
+# Are test_run_id and test_id globally unique across Jira and GitLab?
+# What is the preferred ingestion method — direct API integration, JSON intermediary, or CSV extract?
+# Should IDs be system-generated locally or aligned with upstream Jira/GitLab identifiers?
+# Are lowercase snake_case naming conventions confirmed for the PostgreSQL schema?
+# Is historical version tracking required, or will only current snapshots be maintained?
+{expand}
+
+{expand:title=6. Next Steps}
+# Confirm responses to clarification questions.
+# Finalize PostgreSQL schema DDL and constraints.
+# Map upstream data fields from Jira, GitLab, and JMeter APIs to the target entities.
+# Validate relationships and populate initial reference data.
+# Review and approve for integration with the data ingestion pipeline.
+{expand}
+
+h2. 7. Entity–Relationship Diagram (ERD)
+!ERD-v3.drawio.png!
